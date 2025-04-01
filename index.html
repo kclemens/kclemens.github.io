@@ -3,9 +3,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base target="_top">
     <style>
-    html,body {
-        height: 50vh;
-        /* overflow: hidden; */
+    html, body {
+        height: 100%;
+        /* margin: 0; */
+        font-family: Arial, sans-serif;
+        color: #333;
     }
 
     html {
@@ -13,43 +15,108 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
+        transition: background-image 0.5s ease-in-out;
     }
 
     #content {
-        margin: 5%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.4);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    
+
+    textareaa {
+        background: rgb(255, 255, 255, .4);
+        ;
+    }
+
     .note {
-        padding: 10px;
+        padding: 15px;
         border-radius: 10px;
         outline: none;
-        width: 320px;
+        width: 90%;
+        max-width: 400px;
         height: 155px;
-        background-color: rgba(200, 200, 200, 0.3);
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         resize: none;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .note:focus {
+        border-color: #007BFF;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     }
 
     .button {
-        width: 320px;
-        text-align: right;
+        max-width: 400px;
+        text-align: center;
+        margin: 10px auto 0;
+    }
+
+    .button div {
+        display: block;
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+        text-align: center;
+    }
+
+    .button div:hover {
+        background-color: #0056b3;
     }
 
     .text {
-        margin: 0%;
-        color: black;
-        font-size: 30px;
+        color: #444;
+        font-size: 24px;
         font-family: 'Courier New', monospace;
-        font-weight: bolder;
-        -webkit-text-stroke: 1px rgb(230, 200, 200);
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     }
 
     .name {
-        margin: 0%;
-        color: black;
-        font-size: 45px;
+        margin: 0;
+        color: #222;
+        font-size: 36px;
         font-family: Garamond, serif;
         font-weight: bold;
-        -webkit-text-stroke: 1px  rgb(230, 200, 200);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    #thanks {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+        .note {
+            height: 120px;
+        }
+
+        .text {
+            font-size: 20px;
+        }
+
+        .name {
+            font-size: 28px;
+        }
+
+        .button div {
+            font-size: 14px;
+        }
     }
     </style>
     <script type="text/javascript">
@@ -69,7 +136,9 @@
         <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
         <form id="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScr4G3vJgLtmLftXWwoz4pMfYxqSfwVYEFQ5Fhw09T58w6mhA/formResponse" method="post" accept-charset="utf-8" target="dummyframe">
             <textarea class="note text" autofocus placeholder="please leave your message here and I will get back to you" name="entry.2027502182"></textarea>
-            <div class="button text" onclick="submit_form()">send</div>
+            <div class="button text" onclick="submit_form()">
+                <div>send</div>
+            </div>
         </form>
     </div>
     <script>
